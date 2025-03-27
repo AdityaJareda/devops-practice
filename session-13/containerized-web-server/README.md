@@ -50,7 +50,14 @@ docker run -d -p 8080:80 --name web-server --network web-network -v web-content:
 
 ---
 
-## Step 4: Set Up a Reverse Proxy
+## Step 4: Copy the HTML file into the volume
+```bash
+docker ps index.html web-server:/usr/share/nginx/html
+```
+
+---
+
+## Step 5: Set Up a Reverse Proxy
 1. Add this to your `nginx.conf`:
 ```nginx
 events {}
@@ -74,9 +81,18 @@ docker run -d -p 8081:80 --name reverse-proxy --network web-network -v $(pwd)/ng
 
 ---
 
-## Step 5: Test
+## Step 6: Test
 - **Web Server:** `http://['localhost' or <VM_IP>]:8080`
 - **Reverse Proxy:** `http://['localhost' or <VM_IP>]:8081`
+
+---
+
+## IMPORTANT NOTE :-
+- Make sure your **port 80** is open and isn't being used by other services.
+- You can check using:
+    ```bash
+    sudo lsof -i :80
+    ```
 
 ---
 
