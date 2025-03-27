@@ -8,6 +8,10 @@ This project sets up a simple **Nginx Web Server** using Docker. It includes:
 
 ---
 
+## Dockerized Web Server Architecture
+![Alt Text](./Dockerized-Web-Server-Architecture.png)
+
+---
 
 ## Project Structure
 ```bash
